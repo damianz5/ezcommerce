@@ -38,8 +38,8 @@ variables:
         #"display_errors": "On"
     env:
         # We disable Symfony Proxy, as we rather use Varnish
-        SYMFONY_HTTP_CACHE: 0
-        SYMFONY_TRUSTED_PROXIES: "TRUST_REMOTE"
+        SYMFONY_HTTP_CACHE: 1
+        #SYMFONY_TRUSTED_PROXIES: "TRUST_REMOTE"
         # Change this if you use a different env then "prod", if you change this to "dev" remove "--no-dev" in build step
         SYMFONY_ENV: prod
         # Uncomment if you want to use DFS clustering:
@@ -127,7 +127,8 @@ hooks:
             # To workaround issues with p.sh Varnish we clear container cache & temporary set Symfony Proxy
             rm -Rf var/cache/$SYMFONY_ENV/*.*
 
-            HTTPCACHE_PURGE_TYPE="local" php -d memory_limit=-1 `which composer` ezcommerce-install
+            #HTTPCACHE_PURGE_TYPE="local" php -d memory_limit=-1 `which composer` ezcommerce-install
+            php -d memory_limit=-1 `which composer` ezcommerce-install
 
             php bin/console ezplatform:install ezcommerce_econtent_demo
             bin/console c:c
