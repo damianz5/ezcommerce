@@ -116,6 +116,7 @@ hooks:
 
         # tmp for ezc demo
         git clone https://github.com/ezsystems/ezcommerce-demo-assets.git vendor/ezsystems/ezcommerce-demo-assets
+        mkdir -p web/var/assets/
         cp -R vendor/ezsystems/ezcommerce-demo-assets/assets/ web/var/assets/
 
 
