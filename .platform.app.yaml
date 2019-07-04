@@ -32,6 +32,8 @@ relationships:
     # If you wish to use solr, uncomment this relationship and the corresponding service in .platform/services.yaml
     solr: 'solrsearch:collection1'
 
+    varnishstats: 'varnish:http+stats'
+
 variables:
     #php:
         # Example of setting php.ini config
@@ -142,9 +144,6 @@ hooks:
         # Now that mounts are available, clear class/container cache. E.g. in case of interface changes on lazy proxies
         rm -Rf var/cache/$SYMFONY_ENV/*.*
 
-        mkdir -p web/var/assets
-        cp -R vendor/ezsystems/ezcommerce-demo-assets/assets/ web/var/assets/
-
         # With that done, make sure to clear + warmup all remaining caches to take proper env variables into account
         bin/console cache:clear
 
@@ -153,8 +152,10 @@ hooks:
         ##bin/console kaliop:migration:migrate --no-interaction --no-debug
 
     # Post deploy hook, like deploy but after being deployed and live, for deploy tasks we can do asynchronously
-    #post_deploy: |
-    #    set -e
+    post_deploy: |
+        set -e
+        mkdir -p web/var/assets
+        cp -R vendor/ezsystems/ezcommerce-demo-assets/assets/* web/var/assets/
 
 # The configuration of scheduled execution.
 # see https://docs.platform.sh/configuration/app/cron.html#cron-jobs
