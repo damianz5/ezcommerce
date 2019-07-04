@@ -41,7 +41,7 @@ variables:
         SYMFONY_HTTP_CACHE: 1
         #SYMFONY_TRUSTED_PROXIES: "TRUST_REMOTE"
         # Change this if you use a different env then "prod", if you change this to "dev" remove "--no-dev" in build step
-        SYMFONY_ENV: prod
+        SYMFONY_ENV: dev
         # Uncomment if you want to use DFS clustering:
         #PLATFORMSH_DFS_NFS_PATH: 'dfsdata'
 
@@ -113,7 +113,7 @@ hooks:
         git clone https://github.com/ezsystems/ezcommerce-demo-assets.git vendor/ezsystems/ezcommerce-demo-assets
 
         rm web/app_dev.php
-        composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
+        composer install --prefer-dist --no-progress --no-interaction --optimize-autoloader
 
         #php bin/console silversolutions:switchdataprovider econtent --location-id=118 --new-root-node=2
 
