@@ -32,8 +32,6 @@ relationships:
     # If you wish to use solr, uncomment this relationship and the corresponding service in .platform/services.yaml
     solr: 'solrsearch:collection1'
 
-    varnishstats: 'varnish:http+stats'
-
 variables:
     #php:
         # Example of setting php.ini config
