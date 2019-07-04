@@ -109,15 +109,15 @@ hooks:
             composer config github-oauth.github.com $GITHUB_TOKEN
         fi
 
-        rm web/app_dev.php
-        composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
-
-        #php bin/console silversolutions:switchdataprovider econtent --location-id=118 --new-root-node=2
-
         # tmp for ezc demo
         git clone https://github.com/ezsystems/ezcommerce-demo-assets.git vendor/ezsystems/ezcommerce-demo-assets
         mkdir -p web/var/assets/
         cp -R vendor/ezsystems/ezcommerce-demo-assets/assets/ web/var/assets/
+
+        rm web/app_dev.php
+        composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
+
+        #php bin/console silversolutions:switchdataprovider econtent --location-id=118 --new-root-node=2
 
 
     # Deploy hook, access to services & done once (per cluster, not per node), only mounts are writable at this point
