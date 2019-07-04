@@ -111,8 +111,6 @@ hooks:
 
         # tmp for ezc demo
         git clone https://github.com/ezsystems/ezcommerce-demo-assets.git vendor/ezsystems/ezcommerce-demo-assets
-        mkdir -p web/var/assets/
-        cp -R vendor/ezsystems/ezcommerce-demo-assets/assets/ web/var/assets/
 
         rm web/app_dev.php
         composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
@@ -143,6 +141,9 @@ hooks:
 
         # Now that mounts are available, clear class/container cache. E.g. in case of interface changes on lazy proxies
         rm -Rf var/cache/$SYMFONY_ENV/*.*
+
+        mkdir -p web/var/assets
+        cp -R vendor/ezsystems/ezcommerce-demo-assets/assets/ web/var/assets/
 
         # With that done, make sure to clear + warmup all remaining caches to take proper env variables into account
         bin/console cache:clear
