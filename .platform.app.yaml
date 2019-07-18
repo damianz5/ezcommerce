@@ -117,6 +117,8 @@ hooks:
 
         #php bin/console silversolutions:switchdataprovider econtent --location-id=118 --new-root-node=2
 
+        sh install-demo.sh
+
 
     # Deploy hook, access to services & done once (per cluster, not per node), only mounts are writable at this point
     # Note: Http traffic is paused while this is running, so for prod code this should finish as fast as possible, < 30s

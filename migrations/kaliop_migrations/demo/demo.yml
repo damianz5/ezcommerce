@@ -17,6 +17,19 @@
     identifier: ref_section__media
     value: 3
 
+-
+    type: content_type
+    mode: update
+    match:
+        identifier: blog_post_2
+    new_identifier: blog_post
+
+-
+    type: content_type
+    mode: update
+    match:
+        identifier: blog_2
+    new_identifier: blog
 
 -
     type: content_type
@@ -1003,7 +1016,7 @@
             destinationContentIds:
                 - reference:ref_content_image__media__images__fridge_banner
         start_date: 1521763200
-        end_date: null
+        end_date: 1791763200
         alternative_title: null
         alternative_intro:
             content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
@@ -1049,7 +1062,7 @@
             destinationContentIds:
                 - reference:ref_content_image__media__images__kitchen
         start_date: 1521763200
-        end_date: null
+        end_date: 1791763200
         alternative_title: null
         alternative_intro:
             content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
@@ -1119,7 +1132,7 @@
 -
     type: content
     mode: create
-    content_type: blog_2
+    content_type: blog
     parent_location: 2
     priority: 7
     is_hidden: false
@@ -1162,7 +1175,7 @@
 -
     type: content
     mode: create
-    content_type: blog_post_2
+    content_type: blog_post
     parent_location: reference:ref_location_blog__home__blog
     priority: 1
     is_hidden: false
@@ -1200,7 +1213,7 @@
 -
     type: content
     mode: create
-    content_type: blog_post_2
+    content_type: blog_post
     parent_location: reference:ref_location_blog__home__blog
     priority: 2
     is_hidden: false
@@ -1246,7 +1259,7 @@
 -
     type: content
     mode: create
-    content_type: blog_post_2
+    content_type: blog_post
     parent_location: reference:ref_location_blog__home__blog
     priority: 3
     is_hidden: false
@@ -1284,15 +1297,7 @@
 
 
 
-
-
-
-
-
-
-
 # landing pages
-
 -
     type: content
     mode: update
@@ -1383,7 +1388,7 @@
                           {
                               "id": "",
                               "name": "productGroupEcontent",
-                              "value": "118"
+                              "value": "2"
                           }
                           ]
                       },
@@ -1400,34 +1405,34 @@
                           "till": null,
                           "attributes": [
                           {
-                              "id": "",
-                              "name": "name",
-                              "value": "New Products"
+                              "id":"",
+                              "name":"name",
+                              "value":"New Products"
                           },
                           {
-                              "id": "",
-                              "name": "skulist",
-                              "value": "[{\"sku\":\"5518\",\"name\":\"5518 - Triple BB Food Mixer\"},{\"sku\":\"5527\",\"name\":\"5527 - Jameson Cutting Board\"},{\"sku\":\"5533\",\"name\":\"5533 - Pasta Server\"},{\"sku\":\"5521\",\"name\":\"5521 - Slow Cooker\"}]"
+                              "id":"",
+                              "name":"skulist",
+                              "value": "[{\"sku\":\"HR1577/60\",\"name\":\"HR1577/60 - Mixer HR1577/60\",\"note\":\"\",\"image\":\"/var/ecommerce/storage/images/thumb_small/1/8/6/-18668148-Philips_thumb_small.jpg\"},{\"sku\":\"KB813-BK- SPN\",\"name\":\"KB813-BK- SPN - KB813\",\"note\":\"\",\"image\":\"/var/ecommerce/storage/images/thumb_small/1/8/3/-18314697-3873_thumb_small.jpg\"},{\"sku\":\"11N-RG300EX-020R\",\"name\":\"11N-RG300EX-020R - RG300EX\",\"note\":\"\",\"image\":\"/var/ecommerce/storage/images/thumb_small/1/1/0/-11089163-5023_thumb_small.jpg\"},{\"sku\":\"GT-I8750ALABTU\",\"name\":\"GT-I8750ALABTU - GT-I8750\",\"note\":\"\",\"image\":\"/var/ecommerce/storage/images/thumb_small/1/5/6/-15668791_2831933031_thumb_small.jpg\"}]"
                           },
                           {
-                              "id": "",
-                              "name": "name_tab2",
-                              "value": "Sale"
+                              "id":"",
+                              "name":"name_tab2",
+                              "value":"Sale"
                           },
                           {
-                              "id": "",
-                              "name": "skulist_tab2",
-                              "value": "[{\"sku\":\"5526\",\"name\":\"5526 - Tifex Roasting Pan\"},{\"sku\":\"5528\",\"name\":\"5528 - Tokumu Knife Set\"},{\"sku\":\"5525\",\"name\":\"5525 - Tifex Frying Pans\"}]"
+                              "id":"",
+                              "name":"skulist_tab2",
+                              "value": "[{\"sku\":\"C3862A\",\"name\":\"C3862A - Vellum Paper-610 mm x 45.7...\",\"note\":\"\",\"image\":\"/var/ecommerce/storage/images/thumb_small/1/4/8/-1488_3945079097_thumb_small.jpg\"},{\"sku\":\"Q1342A\",\"name\":\"Q1342A - LaserJet 1000 Printer\",\"note\":\"\",\"image\":\"/var/ecommerce/storage/images/thumb_small/2/0/7/-2070_thumb_small.jpg\"},{\"sku\":\"DC143B\",\"name\":\"DC143B - 48X PATA CD-ROM Drive\",\"note\":\"\",\"image\":\"/var/ecommerce/storage/images/thumb_small/4/5/1/-45142_0406972403_thumb_small.jpg\"}]"
                           },
                           {
-                              "id": "",
-                              "name": "name_tab3",
-                              "value": "Offers"
+                              "id":"",
+                              "name":"name_tab3",
+                              "value":"Offers"
                           },
                           {
-                              "id": "",
-                              "name": "skulist_tab3",
-                              "value": "[{\"sku\":\"5521\",\"name\":\"5521 - Slow Cooker\"},{\"sku\":\"5523\",\"name\":\"5523 - Eco B Pasta Maker\"}]"
+                              "id":"",
+                              "name":"skulist_tab3",
+                              "value":"[{\"sku\":\"HP8643/00\",\"name\":\"HP8643/00 - HP8643/00\",\"note\":\"\",\"image\":\"/var/ecommerce/storage/images/thumb_small/1/9/5/-19532573-Philips_thumb_small.jpg\"},{\"sku\":\"HP8230/60\",\"name\":\"HP8230/60 - Hairdryer HP8230/60\",\"note\":\"\",\"image\":\"/var/ecommerce/storage/images/thumb_small/1/9/5/-19568568-Philips_thumb_small.jpg\"}]"
                           }
                           ]
                       },
@@ -1571,3 +1576,161 @@
             }
 
 
+
+
+-
+    type: content
+    mode: create
+    content_type: landing_page
+    parent_location: 2
+    priority: 2
+    is_hidden: false
+    sort_field: path
+    sort_order: ASC
+    remote_id: e263d9998e38aae1b9b0c88031e5c450
+    location_remote_id: e69e09430473ae5d2def00c2bb179ab6
+    lang: eng-GB
+    section: 1
+    owner: 14
+    always_available: false
+    attributes:
+        name: 'Kitchens of the future'
+        description: 'Kitchens tend to be the center of the home.'
+        page: >-
+            {
+                "layout": "1",
+                "zones": [
+                  {
+                    "id": "",
+                    "name": "First zone",
+                    "blocks": [
+                        {
+                            "visible": true,
+                            "id": "",
+                            "type": "banner",
+                            "name": "Banner",
+                            "view": "banner_container",
+                            "class": null,
+                            "style": null,
+                            "compiled": "",
+                            "since": null,
+                            "till": null,
+                            "attributes": [
+                                {
+                                    "id": "",
+                                    "name": "contentId",
+                                    "value": "[reference:ref_content_image__media__images__banner_landing_page__national_pan_date]"
+                                },
+                                {
+                                    "id": "",
+                                    "name": "url",
+                                    "value": "http://www.ez.no"
+                                }
+                            ]
+                        },
+                        {
+                            "visible": true,
+                            "id": "",
+                            "type": "product_slider",
+                            "name": "Product Slider",
+                            "view": "default",
+                            "class": null,
+                            "style": null,
+                            "compiled": "",
+                            "since": null,
+                            "till": null,
+                            "attributes": [
+                                {
+                                    "id": "",
+                                    "name": "name",
+                                    "value": "Future offers"
+                                },
+                                {
+                                    "id": "",
+                                    "name": "skulist",
+                                    "value": "[{\"sku\":\"MG23K3515AW\",\"name\":\"Microwave grill\"},{\"sku\":\"GBB60PZEFS\",\"name\":\"GBB60PZEFS - fridge-freezer\"}]"
+                                },
+                                {
+                                    "id": "",
+                                    "name": "name_tab2",
+                                    "value": null
+                                },
+                                {
+                                    "id": "",
+                                    "name": "skulist_tab2",
+                                    "value": null
+                                },
+                                {
+                                    "id": "",
+                                    "name": "name_tab3",
+                                    "value": null
+                                },
+                                {
+                                    "id": "",
+                                    "name": "skulist_tab3",
+                                    "value": null
+                                }
+                            ]
+                        },
+                        {
+                            "visible": true,
+                            "id": "",
+                            "type": "contentlist",
+                            "name": "Content List",
+                            "view": "contentlist",
+                            "class": null,
+                            "style": null,
+                            "compiled": "",
+                            "since": null,
+                            "till": null,
+                            "attributes": [
+                                {
+                                    "id": "",
+                                    "name": "contentId",
+                                    "value": "[reference:ref_content_blog__home__blog]"
+                                },
+                                {
+                                    "id": "",
+                                    "name": "limit",
+                                    "value": "5"
+                                },
+                                {
+                                    "id": "",
+                                    "name": "contentType",
+                                    "value": "blog_post"
+                                }
+                            ]
+                        },
+                        {
+                            "visible": true,
+                            "id": "",
+                            "type": "contentlist",
+                            "name": "Content List",
+                            "view": "contentlist",
+                            "class": null,
+                            "style": null,
+                            "compiled": "",
+                            "since": null,
+                            "till": null,
+                            "attributes": [
+                                {
+                                    "id": "",
+                                    "name": "contentId",
+                                    "value": "[reference:ref_content_folder_events__home__events]"
+                                },
+                                {
+                                    "id": "",
+                                    "name": "limit",
+                                    "value": "5"
+                                },
+                                {
+                                    "id": "",
+                                    "name": "contentType",
+                                    "value": "event"
+                                }
+                            ]
+                        }
+                    ]
+                  }
+                ]
+            }

@@ -1,0 +1,20 @@
+ezpublish:
+    system:
+        site_group:
+            field_templates:
+                - {template: "SisoContentPluginBundle:fields:content_fields.html.twig", priority: 10}
+            content_view:
+                full:
+                    silverContentBlog:
+                        template: "SisoContentPluginBundle:full:blog.html.twig"
+                        match:
+                            Identifier\ContentType: [blog]
+
+ezplatform_page_fieldtype:
+    blocks:
+        gallery:
+            name: Gallery
+            category: default
+            thumbnail: '/bundles/ezplatformadminui/img/ez-icons.svg#gallery'
+            views:
+                default: { name: 'Default block layout', template: 'SisoEzStudioBundle:blocks:gallery.html.twig' }
