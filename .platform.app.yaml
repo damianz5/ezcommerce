@@ -38,7 +38,7 @@ variables:
         #"display_errors": "On"
     env:
         # We disable Symfony Proxy, as we rather use Varnish
-        SYMFONY_HTTP_CACHE: 1
+        SYMFONY_HTTP_CACHE: 0
         #SYMFONY_TRUSTED_PROXIES: "TRUST_REMOTE"
         # Change this if you use a different env then "prod", if you change this to "dev" remove "--no-dev" in build step
         SYMFONY_ENV: prod
@@ -76,6 +76,9 @@ mounts:
     'var/sessions':
         source: local
         source_path: sessions
+    'vendor_rw':
+        source: local
+        source_path: vendor_rw
     # To be prepared to move to cluster, please rather use e.g. persisted Redis instance.
 #    'web/sessions':
 #        source: local
@@ -113,11 +116,10 @@ hooks:
         git clone https://github.com/ezsystems/ezcommerce-demo-assets.git vendor/ezsystems/ezcommerce-demo-assets
 
         rm web/app_dev.php
+        echo "> executing composer install"
         composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
 
         #php bin/console silversolutions:switchdataprovider econtent --location-id=118 --new-root-node=2
-
-        sh install-demo.sh
 
 
     # Deploy hook, access to services & done once (per cluster, not per node), only mounts are writable at this point
@@ -125,21 +127,17 @@ hooks:
     deploy: |
         set -e
         # Mainly relevant for eZ Platform demo usage, for own setup adapt this or remove and rely on migrations.
+        rm web/var/.platform.installed
+
         if [ ! -f web/var/.platform.installed ]; then
             # To workaround issues with p.sh Varnish we clear container cache & temporary set Symfony Proxy
             rm -Rf var/cache/$SYMFONY_ENV/*.*
 
             #HTTPCACHE_PURGE_TYPE="local" php -d memory_limit=-1 `which composer` ezcommerce-install
+
             php -d memory_limit=-1 `which composer` ezcommerce-install
 
-            php bin/console ezplatform:install ezcommerce_econtent_demo
-            bin/console c:c
-            bin/console kaliop:migration:migrate --path migrations/kaliop_migrations/demo/demo.yml -n
-
-            bin/console ezplatform:reindex
-            bin/console silversolutions:indexecontent --live-core
-
-            touch web/var/.platform.installed
+            #touch web/var/.platform.installed
         fi
 
         # Now that mounts are available, clear class/container cache. E.g. in case of interface changes on lazy proxies
@@ -157,6 +155,10 @@ hooks:
         set -e
         mkdir -p web/var/assets
         cp -R vendor/ezsystems/ezcommerce-demo-assets/assets/* web/var/assets/
+
+        #php bin/console silversolutions:switchdataprovider econtent --location-id=118 --new-root-node=2
+        #bin/console ezplatform:reindex
+        #bin/console silversolutions:indexecontent --live-core
 
 # The configuration of scheduled execution.
 # see https://docs.platform.sh/configuration/app/cron.html#cron-jobs

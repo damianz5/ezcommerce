@@ -19,17 +19,10 @@ $routes = getenv('PLATFORM_ROUTES');
 $relationships = json_decode(base64_decode($relationships), true);
 $routes = json_decode(base64_decode($routes), true);
 
-
-echo "\nrelationships: \n";
-var_dump($relationships);
-
 foreach ($relationships['database'] as $endpoint) {
     if (empty($endpoint['query']['is_master'])) {
         continue;
     }
-
-    echo "\nendpoint: \n";
-    var_dump($endpoint);
 
     $container->setParameter('database_driver', 'pdo_' . $endpoint['scheme']);
     $container->setParameter('database_host', $endpoint['host']);

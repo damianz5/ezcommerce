@@ -135,7 +135,11 @@
         "ezplatform-install": [
             "@php bin/console cache:clear",
             "@php bin/console ezplatform:install ezplatform-ee-clean",
-            "@php bin/console ezplatform:install ezcommerce-clean"
+            "@php bin/console ezplatform:install ezc-tmp-clean-installer",
+            "@php bin/console silversolutions:switchdataprovider econtent --location-id=118 --new-root-node=2",
+            "@php bin/console ezplatform:reindex",
+            "sh install-demo.sh",
+            "@php bin/prepare-demo.php"
         ],
         "ezcommerce-install": [
             "@ezplatform-install"

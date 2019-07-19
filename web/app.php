@@ -10,7 +10,12 @@ if (in_array('phar', stream_get_wrappers())) {
 
 // Ensure UTF-8 is used in string operations
 setlocale(LC_CTYPE, 'C.UTF-8');
-require __DIR__ . '/../vendor/autoload.php';
+
+if (file_exists('/../vendor_rw/autoload.php')) {
+    require __DIR__ . '/../vendor_rw/autoload.php';
+} else {
+    require __DIR__ . '/../vendor/autoload.php';
+}
 
 // Environment is taken from "SYMFONY_ENV" variable, if not set, defaults to "prod"
 $environment = getenv('SYMFONY_ENV');
@@ -59,6 +64,11 @@ if ($trustedProxies = getenv('SYMFONY_TRUSTED_PROXIES')) {
     } else {
         Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL);
     }
+}
+
+if (file_exists(('web/var/debug.php'))) {
+    require 'web/var/debug.php';
+    exit;
 }
 
 $response = $kernel->handle($request);

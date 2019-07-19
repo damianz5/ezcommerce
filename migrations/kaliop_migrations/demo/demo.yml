@@ -31,6 +31,7 @@
         identifier: blog_2
     new_identifier: blog
 
+
 -
     type: content_type
     mode: update
